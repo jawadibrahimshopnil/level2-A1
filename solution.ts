@@ -71,3 +71,30 @@ function printBookDetails(book: Book): void {
 
    console.log(`Title: ${title}, Author: ${author}, Published: ${publishedYear}, Available: ${isAvailable ? "Yes" : "No"}`)
 }
+
+// 7
+
+// 8
+interface ProductT {
+   name: string;
+   price: number;
+   quantity: number;
+   discount?: number;
+}
+
+const calculateTotalPrice = (products: ProductT[]):number => {
+   const totalProductPrice = products.reduce((total, current)=>{
+      const {price, quantity, discount} = current;
+      
+      let productsPrice = price * quantity;
+
+      if(discount){
+         productsPrice = productsPrice - (productsPrice * (discount/100))
+      }
+
+      return total + productsPrice;
+
+   }, 0);
+
+   return totalProductPrice;
+}
