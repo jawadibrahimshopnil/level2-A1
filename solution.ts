@@ -73,6 +73,38 @@ function printBookDetails(book: Book): void {
 }
 
 // 7
+interface UniqueValueMapT {
+   [key: string] : boolean
+}
+
+type Values = (string | number);
+const getUniqueValues = (arr1: Values[], arr2: Values[]):Values[] =>{
+   const uniqueValueMap: UniqueValueMapT = {};
+
+   const resultArr:Values[] = [];
+
+   const makeUniqueKey = (value: Values):string => `${typeof value}|${value}`
+
+   for (const item of arr1) {
+      const key = makeUniqueKey(item);
+
+      if (!uniqueValueMap[key]) {
+         uniqueValueMap[key] = true;
+         resultArr[resultArr.length] = item;
+      }
+   }
+
+   for (const item of arr2) {
+      const key = makeUniqueKey(item);
+
+      if (!uniqueValueMap[key]) {
+         uniqueValueMap[key] = true;
+         resultArr[resultArr.length] = item
+      }
+   }
+
+   return resultArr;
+}
 
 // 8
 interface ProductT {
