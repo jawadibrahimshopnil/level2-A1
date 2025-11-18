@@ -1,3 +1,4 @@
+// 1
 type FormatValueT = (input: string | number | boolean) => (string | number | boolean);
 
 const formatValue: FormatValueT = (input) => {
@@ -8,6 +9,7 @@ const formatValue: FormatValueT = (input) => {
    throw new Error("Unexpected type for pr0blem-1. It must be a string, number or boolean, as given in the assignment");
 }
 
+// 2
 const getLength = (input: (string | any[])): number => {
    if (typeof input === "string") return input.length;
    if (Array.isArray(input)) return input.length;
@@ -15,6 +17,7 @@ const getLength = (input: (string | any[])): number => {
    throw new Error("Unexpected type for pr0blem-2. It must be a string or an array of any, as given in the assignment");
 }
 
+// 3
 class Person {
    name:string;
    age:number;
@@ -30,6 +33,7 @@ class Person {
 
 }
 
+// 4
 interface BookT {
    title: string;
    rating: number;
@@ -40,16 +44,30 @@ function filterByRating(books: BookT[]): BookT[]{
    return filtered;
 }
 
+// 5
 interface UsersT {
    id: number,
    name: string,
    email: string,
    isActive: boolean
 }
-
 type filterActiveUsersT = (users: UsersT[]) => UsersT[];
 
 const filterActiveUsers: filterActiveUsersT = (users) =>{
    const filtered = users.filter(user => user.isActive);
    return filtered;
+}
+
+// 6
+interface Book{
+   title: string;
+   author: string;
+   publishedYear: number;
+   isAvailable: boolean;
+}
+
+function printBookDetails(book: Book): void {
+   const {title, author, publishedYear, isAvailable} = book;
+
+   console.log(`Title: ${title}, Author: ${author}, Published: ${publishedYear}, Available: ${isAvailable ? "Yes" : "No"}`)
 }
