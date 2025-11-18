@@ -30,3 +30,12 @@ class Person {
 
 }
 
+interface BookT {
+   title: string;
+   rating: number;
+} 
+
+function filterByRating(books: BookT[]): BookT[]{
+   const filtered = books.filter(book=> book.rating >= 4);
+   return filtered;
+}
