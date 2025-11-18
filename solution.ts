@@ -39,3 +39,17 @@ function filterByRating(books: BookT[]): BookT[]{
    const filtered = books.filter(book=> book.rating >= 4);
    return filtered;
 }
+
+interface UsersT {
+   id: number,
+   name: string,
+   email: string,
+   isActive: boolean
+}
+
+type filterActiveUsersT = (users: UsersT[]) => UsersT[];
+
+const filterActiveUsers: filterActiveUsersT = (users) =>{
+   const filtered = users.filter(user => user.isActive);
+   return filtered;
+}
